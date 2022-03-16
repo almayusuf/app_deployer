@@ -17,7 +17,7 @@ podTemplate(yaml: '''
     stage('Clone') {
       ws() {
           container('tools') {
-          checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'gh', url: 'https://github.com/farrukh90/custom_helm.git']]])
+          checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'gh', url: 'https://github.com/farrukh90/app_deployer.git']]])
             }
         }
     }
