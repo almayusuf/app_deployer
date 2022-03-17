@@ -1,8 +1,3 @@
-provider "helm" {
-  kubernetes {
-    config_path = "config"
-  }
-}
 module "artemis-terraform-helm" {
   source               = "./modules/terraform-helm/"
   deployment_name      = "artemis"
