@@ -28,25 +28,9 @@ podTemplate(yaml: '''
             withCredentials([file(credentialsId: 'k8s', variable: 'GC_KEY')]) {
                 sh("gcloud auth activate-service-account --key-file=${GC_KEY}")
                 sh("gcloud container clusters get-credentials project-cluster --region us-central1")
-
-                }
-            }
-        }
-    }
-    stage('Init') {
-      ws() {
-          container('tools') {
-          sh 'bash setenv.sh'
-          sh 'terraform init'
-            }
-        }
-    }
-    stage('deploy') {
-      ws() {
-          container('tools') {
-            // sh 'sleep 120'
-            sh 'gsutil ls gs://backend-uimbkrhaxfaijvth/application_deployment/dev'
-            sh 'terraform init && terraform apply -var-file envs/dev.tfvars -auto-approve'
+                sh 'bash setenv.sh'
+                sh 'terraform init'
+                sh 'terraform init && terraform apply -var-file envs/dev.tfvars -auto-approve'
             }
         }
     }
