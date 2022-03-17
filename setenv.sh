@@ -4,6 +4,7 @@ terraform {
   backend "gcs" {
     bucket  = "`gsutil ls  | grep "backend-" | awk -F "/" '{print $3}'`"
     prefix  = "application_deployment/dev"
+    credentials = service-account.json
   }
 }
 EOF
