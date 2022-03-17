@@ -30,7 +30,7 @@ podTemplate(yaml: '''
                 sh("gcloud container clusters get-credentials project-cluster --region us-central1")
                 sh 'bash setenv.sh'
                 sh 'terraform init'
-                sh 'terraform init && terraform apply -var-file envs/dev.tfvars -auto-approve -lock=false"'
+                sh 'terraform init && terraform apply -var-file envs/dev.tfvars -auto-approve -lock=false'
           }
         }
       }
