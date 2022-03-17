@@ -45,6 +45,7 @@ podTemplate(yaml: '''
       ws() {
           container('tools') {
             // sh 'sleep 120'
+            sh 'gsutil ls gs://backend-uimbkrhaxfaijvth/application_deployment/dev'
             sh 'terraform apply -var-file envs/dev.tfvars -auto-approve'
             }
         }
