@@ -31,9 +31,9 @@ podTemplate(yaml: '''
                 sh 'bash setenv.sh'
                 sh 'terraform init'
                 sh 'terraform apply -var-file envs/dev.tfvars -auto-approve'
-           }
-       }
+          }
+        }
+      }
     }
   }
-}
 }
