@@ -25,13 +25,13 @@ ingress:
     acme.cert-manager.io/http01-edit-in-place: "true"
     kubernetes.io/ingress.class: nginx
   hosts:
-  - host: "artemis.${var.google_domain_name}"
+  - host: "artemis-${var.namespace}.${var.google_domain_name}"
     paths: 
     - path: /
   tls: 
   - secretName: artemis
     hosts:
-    - "artemis.${var.google_domain_name}"
+    - "artemis-${var.namespace}.${var.google_domain_name}"
   ingressClassName: nginx
   EOF
 }
