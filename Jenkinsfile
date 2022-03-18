@@ -27,8 +27,6 @@ podTemplate(yaml: '''
           container('tools') {
                 sh("gcloud auth activate-service-account --key-file=service-account.json")
                 sh("gcloud container clusters get-credentials project-cluster --region us-central1")
-
-    
             }
         }
     }
