@@ -3,6 +3,6 @@ provider "google" {
 }
 provider "helm" {
   kubernetes {
-    config_path = "config"
+    config_path = "~/.kube/config"
   }
 }
