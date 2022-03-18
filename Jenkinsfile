@@ -22,7 +22,7 @@ podTemplate(yaml: '''
         }
     }
 
-    stage('Terraform') {
+    stage('Authentication') {
       ws() {
           container('tools') {
                 sh("gcloud auth activate-service-account --key-file=service-account.json")
