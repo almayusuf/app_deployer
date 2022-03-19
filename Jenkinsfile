@@ -12,7 +12,7 @@ podTemplate(yaml: '''
       imagePullSecrets:
       - name: regcred
 ''') {
-  properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5'))])
+properties([parameters([string(defaultValue: 'dev', description: 'Please provide the environment to build', name: 'EnvironmentToBuild')])])  
   node(POD_LABEL) {
     stage('Clone') {
       ws() {
