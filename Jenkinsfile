@@ -33,7 +33,7 @@ podTemplate(yaml: '''
     stage('Init') {
       ws() {
           container('tools') {
-          sh 'bash setenv.sh'
+          sh 'bash setenv.sh envs/dev.tfvars'
           sh 'terraform init'
             }
         }
