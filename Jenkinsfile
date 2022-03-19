@@ -33,7 +33,7 @@ properties([parameters([string(defaultValue: 'dev', description: 'Please provide
     stage('Init') {
       ws() {
           container('tools') {
-          sh 'bash setenv.sh envs/dev.tfvars'
+          sh 'bash setenv.sh envs/${EnvironmentToBuild}.tfvars'
           sh 'terraform init'
             }
         }
@@ -42,7 +42,7 @@ properties([parameters([string(defaultValue: 'dev', description: 'Please provide
       ws() {
           container('tools') {
             // sh 'sleep 120'
-            sh 'terraform apply -var-file envs/dev.tfvars -auto-approve'
+            sh 'terraform apply -var-file envs/${EnvironmentToBuild}.tfvars -auto-approve'
             }
         }
     }
