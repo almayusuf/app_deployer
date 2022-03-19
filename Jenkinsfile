@@ -12,7 +12,7 @@ podTemplate(yaml: '''
       imagePullSecrets:
       - name: regcred
 ''') {
-properties([parameters([choice(choices: ['Dev', 'QA', 'Stage', 'Prod'], description: 'Please provide an environment to build', name: 'EnvironmentToBuild')])])  
+properties([parameters([choice(choices: ['dev', 'qa', 'stage', 'prod'], description: 'Please provide an environment to build', name: 'EnvironmentToBuild')])])  
 node(POD_LABEL) {
     stage('Clone') {
       ws() {
