@@ -1,4 +1,4 @@
-NAMESPACE=`grep namespace $1| awk -F "=" '{print $2}' | tr -d '"'`
+NAMESPACE=`grep namespace $1| awk -F "=" '{print $2}' | tr -d '"' | tr -d ' '`
 
 DIR=$(pwd)
 cat << EOF > "$DIR/backend.tf"
