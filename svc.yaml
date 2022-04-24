@@ -1,0 +1,86 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/ssl-redirect: "false"
+    kubernetes.io/ingress.class: nginx
+    meta.helm.sh/release-name: artemis
+    meta.helm.sh/release-namespace: dev
+    nginx.ingress.kubernetes.io/proxy-body-size: 64m
+  creationTimestamp: "2022-04-24T17:11:16Z"
+  generation: 3
+  labels:
+    app.kubernetes.io/instance: artemis
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: artemis
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: artemis-0.1.0
+  name: artemis
+  namespace: dev
+  resourceVersion: "826134"
+  uid: d9e4538b-0de0-4969-8127-efa609625c8f
+spec:
+  rules:
+  - host: artemis-dev.projectxconsulting.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: artemis
+            port:
+              number: 5000
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - artemis-dev.projectxconsulting.net
+    secretName: artemis
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.188.46.215
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/ssl-redirect: "false"
+    kubernetes.io/ingress.class: nginx
+    meta.helm.sh/release-name: artemis
+    meta.helm.sh/release-namespace: dev
+    nginx.ingress.kubernetes.io/proxy-body-size: 64m
+  creationTimestamp: "2022-04-24T17:11:16Z"
+  generation: 3
+  labels:
+    app.kubernetes.io/instance: artemis
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: artemis
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: artemis-0.1.0
+  name: artemis
+  namespace: dev
+  resourceVersion: "826134"
+  uid: d9e4538b-0de0-4969-8127-efa609625c8f
+spec:
+  rules:
+  - host: artemis-dev.projectxconsulting.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: artemis
+            port:
+              number: 5000
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - artemis-dev.projectxconsulting.net
+    secretName: artemis
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.188.46.215
