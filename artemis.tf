@@ -9,6 +9,8 @@ image:
   repository: "${var.image}"
   tag: "${var.tag}"
 
+containerPort: 5000
+
 imagePullSecrets:
   - name: regcred
 
@@ -47,6 +49,9 @@ module "artemis-terraform-helm-9-0-0" {
 image:
   repository: "${var.image}"
   tag: "9.0.0"
+
+containerPort: 5000
+
 service:
   type: ClusterIP
   port: 5000
