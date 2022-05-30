@@ -19,8 +19,10 @@ terraform apply -var-file envs/dev.tfvars
 ### Verify
 #### Ensure pod created and running
 ```
- kubectl get po -n dev
- ```
+kubectl get po -n dev
+```
 
- #### Get ingress and past to browser to see it works
- kubectl get ingress -n dev
+#### Get ingress and past to browser to see it works
+```
+kubectl get ingress -n dev
+```
